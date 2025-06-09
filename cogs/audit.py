@@ -23,6 +23,9 @@ class Audit(commands.Cog):
 		
 	@commands.Cog.listener()
 	async def on_message_edit(self, before: discord.Message, after: discord.Message):
+		if before.author.bot:
+			return
+		
 		embed = discord.Embed(
 			color=discord.Color.yellow(),
 			timestamp=datetime.datetime.now(),
@@ -38,6 +41,9 @@ class Audit(commands.Cog):
 
 	@commands.Cog.listener()
 	async def on_message_delete(self, message: discord.Message):
+		if message.author.bot:
+			return
+		
 		embed = discord.Embed(
 			color=discord.Color.red(),
 			timestamp=datetime.datetime.now(),
