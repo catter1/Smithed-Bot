@@ -48,7 +48,7 @@ class Settings(commands.Cog):
 		# Change setting data
 		old_setting = self.client.settings[setting]
 		self.client.settings[setting] = value
-		with open('settings.json', 'r') as f:
+		with open('settings.json', 'w') as f:
 			json.dump(self.client.settings, f, indent=4)
 
 		await interaction.response.send_message(f"`{setting}` is now changed to `{self.client.settings[setting]}`.", ephemeral=True)
