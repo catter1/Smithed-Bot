@@ -14,7 +14,7 @@ class Audit(commands.Cog):
 
 	@commands.Cog.listener()
 	async def on_ready(self):
-		self.audit_channel = self.client.fetch_channel(self.client.settings["audit-channel-id"])
+		self.audit_channel = await self.client.fetch_channel(self.client.settings["audit-channel-id"])
 		if self.client.environment["SMITHED_BOT_DUMMY"]:
 			self.audit_channel = self.client.get_channel(Constants.Channel.TESTING)
 
