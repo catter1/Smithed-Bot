@@ -8,7 +8,7 @@ class Channel:
     TESTING = 735649413032050769
 
 class Role:
-    pass
+    MODERATOR = 956731042251825192
 
 class User:
     CATTER = 260929689126699008
