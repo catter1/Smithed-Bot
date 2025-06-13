@@ -26,6 +26,9 @@ class Audit(commands.Cog):
 		if before.author.bot:
 			return
 		
+		if before.content == after.content:
+			return
+		
 		embed = discord.Embed(
 			color=discord.Color.yellow(),
 			timestamp=datetime.datetime.now(),
