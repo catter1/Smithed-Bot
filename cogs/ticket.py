@@ -102,7 +102,7 @@ class TicketCreateButton(discord.ui.Button):
 			slowmode_delay=None
 		)
 
-		first_msg = await new_thread.send(f"Hey <@{interaction.user.id}>, this ticket has been created for you to talk with the <@{Constants.Role.MODERATOR}> team. Please explain your request, and they will be with you soon.", view=TicketCloseView())
+		first_msg = await new_thread.send(f"Hey <@{interaction.user.id}>, this ticket has been created for you to talk with the <@&{Constants.Role.MODERATOR}> team. Please explain your request, and they will be with you soon.", view=TicketCloseView())
 		await first_msg.pin()
 		await interaction.response.send_message(f"Your ticket has been created! Go visit it here: <#{new_thread.id}>", ephemeral=True)
 
