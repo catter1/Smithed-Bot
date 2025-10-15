@@ -25,10 +25,12 @@ class Audit(commands.Cog):
 		
 	@commands.Cog.listener()
 	async def on_message_edit(self, before: discord.Message, after: discord.Message):
+		moderator = await after.guild.fetch_role(Constants.Role.MODERATOR)
+		
 		if after.author.bot:
 			return
 		
-		if not after.channel.permissions_for(after.guild.fetch_role(Constants.Role.MODERATOR)).view_channel:
+		if not after.channel.permissions_for(moderator).view_channel:
 			return
 		
 		if before.content == after.content:
@@ -49,10 +51,12 @@ class Audit(commands.Cog):
 
 	@commands.Cog.listener()
 	async def on_message_delete(self, message: discord.Message):
+		moderator = await message.guild.fetch_role(Constants.Role.MODERATOR)
+        
 		if message.author.bot:
 			return
 		
-		if not message.channel.permissions_for(message.guild.fetch_role(Constants.Role.MODERATOR)).view_channel:
+		if not message.channel.permissions_for(moderator).view_channel:
 			return
 		
 		embed = discord.Embed(
