@@ -69,3 +69,5 @@ class Emoji:
     PIN = "🧷"
     SCALES = "⚖️"
     QUESTION = "❓"
+    TICKET = "🎟️"
+    RESOLVE = "✔️"
